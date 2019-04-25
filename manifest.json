@@ -1,32 +1,41 @@
 {
-
-    "description": "Extension that enable ai",
-    "manifest_version": 2,
-    "name": "Kivia",
-    "version": "1.0",
-    "icons": {
-        "32": "img/icon.png"
-      },
-  
-    "content_scripts": [
-      {
-        "matches": ["<all_urls>"],
-        "js": ["index.js"]
-      }
-    ],
-    "browser_action": {
-        "default_icon": "img/icon.png",
-        "default_title": "Kivia",
-        "default_popup": "index.html"
-      },
-      "background": {
-        "scripts": ["background.js"]
-      },      "commands": {
-        "toggle-feature": {
-          "suggested_key": { "default": "F2" },
-          "description": "Opens terminal"
-        }
+  "description": "Extension that enable ai",
+  "manifest_version": 2,
+  "name": "Kivia",
+  "version": "1.0",
+  "icons": {
+    "32": "img/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "index.js"
+      ]
     }
+  ],
+  "browser_action": {
+    "default_icon": "img/icon.png",
+    "default_title": "Kivia",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
   
-  }
-  
+  "commands": {
+      "toggle-feature": {
+      "suggested_key": {
+        "default": "F2"
+      },
+      "description": "Opens terminal"
+    }
+  },
+  "permissions": [
+    "<all_urls>"
+  ]
+}
