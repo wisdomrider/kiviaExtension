@@ -1,0 +1,77 @@
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 60px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 60px;
+}
+
+.input{
+    border: none;
+    width:98%;
+    background: transparent;
+    padding: 4px;
+}
+
+.input-body{
+    display: flex;
+    justify-content: space-between;  
+}
+
+.shell{
+    color: red;
+    font-weight: 500
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+.panel{
+    padding: 5px;
+    border: solid 1px black;
+    width: 300px;
+  }
+.panel-body
+{
+    overflow-y: hidden;
+    height: 250px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-button {
+    width: 8px;
+    height:5px;
+}
+::-webkit-scrollbar-track {
+    background:#eee;
+    border: thin solid lightgray;
+    box-shadow: 0px 0px 3px #dfdfdf inset;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+    background:#999;
+    border: thin solid gray;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background:#7d7d7d;
+}
