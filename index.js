@@ -10,9 +10,9 @@ function readTextFile(file) {
                 var allText = rawFile.responseText;
                 var h = document.getElementsByTagName("html")[0]
                 h.insertAdjacentHTML("afterbegin", allText);
-                var ifra = document.createElement("script");
-                ifra.src = browser.runtime.getURL("kivia.js");
-                document.body.appendChild(ifra);
+                var localjs = document.createElement("script");
+                localjs.src = browser.runtime.getURL("kivia.js");
+                document.body.appendChild(localjs);
 
 
             }
