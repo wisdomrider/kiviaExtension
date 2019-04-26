@@ -1,35 +1,44 @@
+var currentTab;
+
+updateActiveTab=()=>{
+  var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+  gettingActiveTab.then((tabs)=>currentTab=tabs[0]);
+}
+
 browser.commands.onCommand.addListener((command) => {
-  browser.tabs.query({
-    currentWindow: true,
-    active: true
-  }).then(doThings);
+   sendMessage("hola")
+});
+
+browser.runtime.onMessage.addListener(message => {
+    console.log(message)
 });
 
 
-doThings = (tabs) => {
-  tab = tabs.pop()
-  readTextFile(browser.runtime.getURL("style1.css"));
-  browser.tabs.sendMessage(
-    tab.id,
-    { command: "f9" }
-  ).then(response => {
 
-  })
+
+sendMessage=(msg)=>{
+  browser.tabs.sendMessage(currentTab.id, msg).then(response => {
+       
+  }).catch(err=>console.log(err));
 }
-function readTextFile(file) {
-  var rawFile = new XMLHttpRequest();
-  rawFile.open("GET", file, false);
-  rawFile.onreadystatechange = function () {
-    if (rawFile.readyState === 4) {
-      if (rawFile.status === 200 || rawFile.status == 0) {
-        var allText = rawFile.responseText;
-        var insertingCSS = browser.tabs.insertCSS({ code: allText });
-        insertingCSS.then(null, null);
 
 
-      }
-    }
-  }
-  rawFile.send(null);
-}
+browser.tabs.onUpdated.addListener(updateActiveTab);
+browser.windows.onFocusChanged.addListener(updateActiveTab);
+browser.tabs.onActivated.addListener(updateActiveTab);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
